@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a School Tour</title>
+  <style>
+    body{
+      margin:0;
+      padding:0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:#ffffff;
+    }
+    .form-wrap{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 18px 14px 28px;
+    }
+    h1{
+      margin: 0 0 10px;
+      font-size: 56px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color:#111;
+    }
+    .intro{
+      margin: 0 0 18px;
+      font-size: 16px;
+      line-height: 1.55;
+      color:#222;
+      max-width: 980px;
+    }
+    label{
+      display:block;
+      margin: 14px 0 6px;
+      font-size: 18px;
+      color:#111;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select,
+    textarea{
+      width:100%;
+      box-sizing:border-box;
+      border:1px solid #9a9a9a;
+      padding: 12px 10px;
+      font-size: 16px;
+      outline: none;
+      background:#fff;
+    }
+    textarea{ min-height: 140px; resize: vertical; }
+    .row{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .row-3{
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 18px;
+    }
+    .checks{
+      margin-top: 16px;
+      display: grid;
+      gap: 10px;
+      align-items: start;
+      max-width: 980px;
+    }
+    .checkline{
+      display:flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 16px;
+      color:#111;
+    }
+    .checkline input{ margin-top: 3px; }
+    .actions{
+      margin-top: 16px;
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn{
+      background:#111;
+      color:#fff;
+      border:0;
+      padding: 12px 22px;
+      font-size: 16px;
+      cursor:pointer;
+    }
+    .privacy{
+      font-size: 16px;
+      color:#111;
+      text-decoration: underline;
+    }
+    .helper{
+      font-size: 13px;
+      color:#444;
+      margin-top: 10px;
+      max-width: 980px;
+      line-height: 1.45;
+    }
+    .hp{ display:none !important; } /* honeypot */
+    @media (max-width: 900px){
+      h1{ font-size: 44px; }
+      .row, .row-3{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="form-wrap">
+    <h1>Book a School Tour</h1>
+    <p class="intro">
+      Thank you for your interest in Gandhi Memorial Intercontinental School Semarang. Please complete this form to request a school tour. Sharing any relevant details about your child’s needs and interests helps our team prepare a more meaningful visit.
+    </p>
+
+    <form action="https://formsubmit.co/admissions@gmissemarang.sch.id" method="POST">
+      <!-- FormSubmit controls -->
+      <input type="hidden" name="_subject" value="GMIS Semarang | School Tour Request" />
+      <input type="hidden" name="_captcha" value="false" />
+      <!-- Optional: use your real EduPage page URL for the thank-you redirect -->
+      <input type="hidden" name="_next" value="https://YOUR-EDUPAGE-DOMAIN.edupage.org/a/admissions#thanks" />
+
+      <!-- Internal tagging for follow-up -->
+      <input type="hidden" name="Tag:Type" value="School Tour" />
+      <input type="hidden" name="Tag:Source" value="EduPage Website Form" />
+      <input type="hidden" name="Tag:FollowUpStatus" value="New - Action Required" />
+
+      <!-- Honeypot anti-spam (leave empty) -->
+      <div class="hp">
+        <label>Do not fill this field</label>
+        <input type="text" name="_honey" />
+      </div>
+
+      <div class="row">
+        <div>
+          <label for="firstName">First name:</label>
+          <input id="firstName" type="text" name="First name" required />
+        </div>
+        <div>
+          <label for="lastName">Last name:</label>
+          <input id="lastName" type="text" name="Last name" required />
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <label for="email">Your e-mail:</label>
+          <input id="email" type="email" name="Email" required />
+        </div>
+        <div>
+          <label for="phone">WhatsApp / phone:</label>
+          <input id="phone" type="tel" name="WhatsApp / Phone" required />
+        </div>
+      </div>
+
+      <div class="row-3">
+        <div>
+          <label for="pupilName">Pupil’s name:</label>
+          <input id="pupilName" type="text" name="Pupil name" />
+        </div>
+        <div>
+          <label for="yearLevel">Preferred year level:</label>
+          <select id="yearLevel" name="Preferred year level" required>
+            <option value="" selected disabled>Please select</option>
+            <option>Nursery</option>
+            <option>Reception</option>
+            <option>Grade 1</option>
+            <option>Grade 2</option>
+            <option>Grade 3</option>
+            <option>Grade 4</option>
+            <option>Grade 5</option>
+            <option>Grade 6</option>
+            <option>Grade 7</option>
+            <option>Grade 8</option>
+            <option>Grade 9</option>
+            <option>Grade 10</option>
+            <option>Grade 11</option>
+            <option>Grade 12</option>
+          </select>
+        </div>
+        <div>
+          <label for="preferredTime">Preferred date / time:</label>
+          <input id="preferredTime" type="text" name="Preferred date / time" placeholder="e.g., Tue 10:00 AM" />
+        </div>
+      </div>
+
+      <label for="message">Questions, comments:</label>
+      <textarea id="message" name="Questions / Comments" placeholder="Please share your questions, programme interests, and any details you would like us to consider for the visit."></textarea>
+
+      <div class="checks">
+        <label class="checkline">
+          <input type="checkbox" name="Consent to processing of personal data" value="Yes" required />
+          <span>I consent to the processing of personal data for the purpose of responding to this request.</span>
+        </label>
+      </div>
+
+      <div class="actions">
+        <button class="btn" type="submit">Send</button>
+        <a class="privacy" href="privacy-policy.html" target="_blank" rel="noopener">Privacy policy</a>
+      </div>
+
+      <p class="helper">
+        Note: FormSubmit requires a one-time email confirmation the first time you use this destination address. After confirmation, submissions will be delivered to Admissions.
+      </p>
+    </form>
+  </div>
+</body>
+</html>
