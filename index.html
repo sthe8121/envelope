@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GMIS Gallery Walk Invitation</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f8f4ef;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      font-family: 'Georgia', serif;
+    }
+
+    .container {
+      position: relative;
+      width: 400px;
+      height: 400px;
+    }
+
+    .envelope, .envelope-open, .letter {
+      position: absolute;
+      width: 100%;
+      height: auto;
+      top: 0;
+      left: 0;
+      transition: opacity 1s ease, transform 1.5s ease;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    .envelope-open {
+      opacity: 0;
+      z-index: 1;
+    }
+
+    .letter {
+      opacity: 0;
+      transform: scale(0.9) translateY(0);
+      z-index: 2;
+    }
+
+    .envelope.hide {
+      opacity: 0;
+    }
+
+    .envelope-open.show {
+      opacity: 1;
+    }
+
+    .letter.show {
+      opacity: 1;
+      transform: scale(1) translateY(-60px);
+    }
+
+    #fadeOut {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #f8f4ef;
+      z-index: 10;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+      pointer-events: none;
+    }
+
+    #fadeOut.active {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <audio id="openSound" src="open-sound.mp3" preload="auto"></audio>
+
+  <div class="container" onclick="revealLetter()">
+    <img src="envelope.png" alt="Envelope" class="envelope" id="envelope">
+    <img src="envelope-open.png" alt="Opened Envelope" class="envelope-open" id="envelopeOpen">
+    <img src="letter.png" alt="Letter" class="letter" id="letter">
+  </div>
+  <div id="fadeOut"></div>
+
+  <script>
+    function revealLetter() {
+      document.getElementById('openSound').play();
+      document.getElementById('envelope').classList.add('hide');
+      document.getElementById('envelopeOpen').classList.add('show');
+      document.getElementById('letter').classList.add('show');
+
+      setTimeout(() => {
+        document.getElementById('fadeOut').classList.add('active');
+        setTimeout(() => {
+          window.location.href = 'gallery.html';
+        }, 2000);
+      }, 6000);
+    }
+
+    setTimeout(revealLetter, 3000);
+  </script>
+</body>
+</html>
